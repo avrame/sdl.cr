@@ -1,2 +1,5 @@
 /doc
 /samples/data
+
+# macOS hidden files
+.DS_Store
