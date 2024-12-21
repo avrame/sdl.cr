@@ -30,7 +30,7 @@ module SDL
     end
   end
 
-  def self.alloc_format(pixel_format : LibSDL::PixelFormatEnum) : LibSDL::PixelFormat*
+  def self.alloc_format(pixel_format : LibSDL::PixelFormatEnum) : SDL::PixelFormat
     PixelFormat.new(LibSDL.alloc_format(pixel_format.value))
   end
 end
