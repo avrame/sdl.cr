@@ -23,6 +23,12 @@ module SDL
       SDL::Surface.new(surface)
     end
 
+    def self.from(buffer : Slice(UInt32), width, height, format : PixelFormat)
+      surface = LibSDL.create_rgb_surface_from(buffer, width, height, format.bits_per_pixel, width * format.bytes_per_pixel, format.r_mask, format.g_mask, format.b_mask, format.a_mask)
+      raise SDL::Error.new("SDL_RenderReadPixels") unless surface
+      SDL::Surface.new(surface)
+    end
+
     def initialize(@surface : LibSDL::Surface*)
     end
 
