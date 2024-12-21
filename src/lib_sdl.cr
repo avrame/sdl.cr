@@ -15,6 +15,7 @@ require "./lib_sdl/power"
 require "./lib_sdl/render"
 require "./lib_sdl/rwops"
 require "./lib_sdl/shape"
+require "./lib_sdl/timer"
 #require "./lib_sdl/system"
 require "./lib_sdl/video"
 
