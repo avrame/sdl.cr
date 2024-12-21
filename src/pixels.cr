@@ -17,10 +17,6 @@ module SDL
       @pixel_format.value.bytesPerPixel
     end
 
-    def alloc_format(pixel_format : LibSDL::PixelFormatEnum) : LibSDL::PixelFormat*
-      LibSDL::alloc_format(pixel_format.value)
-    end
-
     # def palette
     #  Palette.new(@pixel_format.value.palette)
     # end
@@ -32,5 +28,9 @@ module SDL
     def inspect(io : IO)
       @pixel_format.value.inspect(io)
     end
+  end
+
+  def self.alloc_format(pixel_format : LibSDL::PixelFormatEnum) : LibSDL::PixelFormat*
+    LibSDL::alloc_format(pixel_format.value)
   end
 end
