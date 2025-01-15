@@ -66,11 +66,15 @@ module SDL
       blend_mode
     end
 
-    # def update
-    # end
+    def update(rect : Rect, pixels : Slice(UInt32))
+      ret = LibSDL.update_texture(self, rect, pixels, pixels.size)
+      raise Error.new("SDL_UpdateTexture") unless ret == 0
+    end
 
-    # def update_yuv
-    # end
+    def update_yuv(rect : Rect, y_plane : Slice(UInt8), y_pitch : Int, u_plane : Slice(UInt8), u_pitch : Int, v_plane : Slice(UInt8), v_pitch : Int)
+      ret = LibSDL.update_yuv_texture(self, rect, y_plane, y_pitch, u_plane, u_pitch, v_plane, v_pitch)
+      raise Error.new("SDL_UpdateYUVTexture") unless ret == 0
+    end
 
     def lock : {Slice(UInt32), Int32}
       pitch = uninitialized Int32
